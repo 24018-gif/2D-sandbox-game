@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bv3eui4rq46px"]
+
+[ext_resource type="Script" uid="uid://bqrqg254k3d28" path="res://main.gd" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://bxnsq6g8xb22f" path="res://ui.tscn" id="1_ig7tw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s6ciw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6ciw"]
+size = Vector2(20, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dttvr"]
+size = Vector2(1939, 20)
+
+[node name="Main" type="Node2D" unique_id=280443564]
+script = ExtResource("1_0xm2m")
+
+[node name="UI" parent="." unique_id=858317099 instance=ExtResource("1_ig7tw")]
+
+[node name="SandPanel" parent="UI/Panel/FlowContainer" parent_id_path=PackedInt32Array(858317099, 8920045) index="0" unique_id=1365350650]
+script = null
+
+[node name="SteelPanel" parent="UI/Panel/FlowContainer" parent_id_path=PackedInt32Array(858317099, 8920045) index="1" unique_id=1099674152]
+script = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1307976371]
+position = Vector2(0, 540)
+physics_material_override = SubResource("PhysicsMaterial_s6ciw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1661238304]
+position = Vector2(-10, 0)
+shape = SubResource("RectangleShape2D_s6ciw")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=296430302]
+position = Vector2(1920, 540)
+physics_material_override = SubResource("PhysicsMaterial_s6ciw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1375890469]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_s6ciw")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1273112777]
+position = Vector2(960, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=536251138]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_dttvr")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1025529582]
+position = Vector2(960, 1080)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=480282119]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_dttvr")
+
+[node name="Timer" type="Timer" parent="." unique_id=754370231]
+wait_time = 0.025
+autostart = true
+
+[connection signal="gui_input" from="UI/Panel/FlowContainer/SandPanel" to="." method="_on_sand_panel_gui_input"]
+[connection signal="gui_input" from="UI/Panel/FlowContainer/SteelPanel" to="." method="_on_steel_panel_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="UI"]

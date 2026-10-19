@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://vv5avb1ftp6o"]
+
+[ext_resource type="Script" uid="uid://d0p0kdte3hbpx" path="res://Items/sand.gd" id="1_2jkoe"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g6cdx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6ciw"]
+size = Vector2(2, 2)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_s6ciw"]
+
+[node name="Sand" type="RigidBody2D" unique_id=1496738877]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_g6cdx")
+script = ExtResource("1_2jkoe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=575951896]
+scale = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_s6ciw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=854836143]
+scale = Vector2(16, 16)
+texture = SubResource("PlaceholderTexture2D_s6ciw")

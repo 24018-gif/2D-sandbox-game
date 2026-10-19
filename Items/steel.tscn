@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bswri2maoq7br"]
+
+[ext_resource type="Script" uid="uid://bmf0gffskhmaj" path="res://Items/steel.gd" id="1_hpkwj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_dejrl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dttvr"]
+size = Vector2(2, 2)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xb563"]
+
+[node name="Steel" type="RigidBody2D" unique_id=977686427]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_dejrl")
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_hpkwj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1439718317]
+scale = Vector2(16, 16)
+shape = SubResource("RectangleShape2D_dttvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=303786412]
+scale = Vector2(32, 32)
+texture = SubResource("CanvasTexture_xb563")

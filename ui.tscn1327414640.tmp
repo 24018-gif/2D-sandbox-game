@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bxnsq6g8xb22f"]
+
+[ext_resource type="Script" uid="uid://c0smelxd0hbs0" path="res://sand_panel.gd" id="1_fyqef"]
+[ext_resource type="Script" uid="uid://dkp02b3kktxri" path="res://ui.gd" id="1_m6e0p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6e0p"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="UI" type="CanvasLayer" unique_id=858317099]
+script = ExtResource("1_m6e0p")
+
+[node name="Panel" type="Panel" parent="." unique_id=1565487559]
+offset_left = 1760.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel" unique_id=8920045]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 160.0
+offset_bottom = 1070.0
+
+[node name="SandPanel" type="Panel" parent="Panel/FlowContainer" unique_id=1365350650]
+custom_minimum_size = Vector2(78, 78)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_m6e0p")
+script = ExtResource("1_fyqef")
+
+[connection signal="gui_input" from="Panel/FlowContainer/SandPanel" to="Panel/FlowContainer/SandPanel" method="_on_gui_input"]
